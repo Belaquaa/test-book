@@ -2,14 +2,14 @@ name: Java CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - '**/*.java'
       - '**/*.xml'
       - 'pom.xml'
       - 'src/**'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - '**/*.java'
       - '**/*.xml'
