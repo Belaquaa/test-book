@@ -1,9 +1,10 @@
 package belaquaa.crudpr.controller;
 
-import belaquaa.crudpr.entity.Book;
+import belaquaa.crudpr.dto.BookResponse;
 import belaquaa.crudpr.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,10 +38,9 @@ public class WebController {
     public String booksPage(@RequestParam(required = false) String title,
                             @RequestParam(required = false) String brand,
                             @RequestParam(required = false) Integer year,
-                            @RequestParam(defaultValue = "0") int page,
-                            @RequestParam(defaultValue = "5") int size,
+                            Pageable pageable,
                             Model model) {
-        Page<Book> bookPage = bookService.listBooks(title, brand, year, page, size);
+        Page<BookResponse> bookPage = bookService.listBooks(title, brand, year, pageable);
         model.addAttribute("bookPage", bookPage);
         model.addAttribute("titleFilter", title);
         model.addAttribute("brandFilter", brand);

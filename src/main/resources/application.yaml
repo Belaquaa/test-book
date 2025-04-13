@@ -9,6 +9,13 @@ spring:
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     open-in-view: false
+  data:
+    web:
+      pageable:
+        default-page-size: 5
+        page-parameter: page
+        size-parameter: size
+        max-page-size: 50
 
 springdoc:
   swagger-ui:
